@@ -1,0 +1,3 @@
+$disqusfooter()$
+</body>
+</html>

@@ -1,0 +1,223 @@
+@import url("/static/css/common.css");
+
+ul li {
+    list-style-type: square;
+    list-style-image: inherit;
+    list-style-position: inside;
+}
+
+
+#page {
+    width: 960px;
+    background: #f0f0f0;
+    margin: 0px auto;
+}
+
+#topbar {
+    width: 960px;
+    height: 3em;
+    background: #911;
+    margin: 0px auto;
+    clear: both;
+    color: #f0f0f0;
+}
+
+#content {
+    padding: 12px;
+    clear: both;
+    color: #333;
+}
+
+#content h2 {
+    font-size: 1.75em;
+    font-weight: bold;
+    font-family: 'Helvetica Neue', Calibri, sans-serif;
+}
+
+
+#content h3 {
+    font-size: 1.25em;
+    font-weight: bold;
+    font-family: 'Helvetica Neue', Calibri, sans-serif;
+}
+
+
+#header {
+    float: left;
+    height: 3em;
+    line-height: 3em;
+    vertical-align: bottom;
+    padding-left: 1em;
+}
+
+#header h1 {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+#navigation {
+    float: right;
+    height: 3em;
+    letter-spacing:-0.05em;
+    line-height: 3em;
+    padding-right: 1em;
+    z-index: 0;
+}
+
+#navigation li {
+    display: inline;
+    list-style-type: none;
+}
+
+#navigation li a {
+    display: inline-block;
+    padding: 0px 8px;
+    height: 3em;
+}
+
+#navigation li a:link, #navigation li a:visited {
+    color: #f0f0f0;
+    background: #911;
+}
+
+#navigation li a:hover {
+    color: #911;
+    background: #f0f0f0;
+}
+
+
+div.post {
+    width: 936px;
+}
+
+div.post h2 {
+    clear: both;
+    margin-left: 248px;
+}
+
+div.post p {
+    margin-bottom: 1em;
+}
+
+ol, ul {
+    margin-bottom: 1em;
+}
+
+div.post li {
+    margin-left: 2em;
+}
+
+div.post-meta {
+    width: 230px;
+    padding-right: 18px;
+    float: left;
+}
+
+div.post-date {
+    font-size: 70%;
+    margin-top:2px;
+    margin-bottom: 1em;
+}
+
+div.post-summary {
+    letter-spacing:-0.05em;
+    font-weight: bold;
+    line-height:1.25em;
+    color: #666;
+}
+
+div.post-content {
+    font-family:Georgia,Palatino,Times,'Times New Roman',serif;
+    font-size: 90%;
+    width: 688px;
+    float: left;
+}
+
+div.post-comments {
+    clear: both;
+    margin-top: 1em;
+    border-top: 1px solid #666;
+    padding-left: 248px;
+}
+
+
+#intro {
+    position: absolute;
+    height: 210px;
+    width: 100%;
+    top: 3em;
+    left: 0;
+    background: url(/static/i/intro-background.png) repeat-x;
+    width: 100%;
+    text-align: center;
+    color: #f3f3f3;
+    letter-spacing:-0.05em;
+    line-height:2em;
+    z-index: 2;
+    min-width: 960px;
+    overflow: hidden;
+}
+
+#intro table { width: 100%; height: 100%; }
+
+#intro td {
+    font-size: 2em;
+    width: 100%;
+    height: 100%;
+}
+
+#hello { color: #ee2; }
+
+
+#footer {
+    clear: both;
+}
+
+
+td.date {
+    width:148px;
+    padding-right:12px;
+    font-size:0.6em;
+    text-align:right;
+}
+
+td.summary {
+    width:308px;
+    padding-left: 12px;
+    font-size:0.6em;
+}
+
+td.title {
+    width: 480px;
+    font-weight: bold;
+}
+
+
+#recently-bookmarked, #links, #recent-posts {
+    margin-bottom: 2em;
+}
+
+#recently-bookmarked h2, #links h2, #recent-posts h2 {
+    border-bottom: 1px solid #333;
+    padding-left: 158px;
+}
+
+h2 a:link, h2 a:visited {
+    color: #333;
+}
+
+h2 a:hover {
+    color: #49628f;
+}
+
+
+pre {
+    font-size: 0.8em;
+    margin-left:   2em;
+    margin-bottom: 1em;
+}
+
+
+#recently-bookmarked tr, #links tr, #recent-posts tr {
+    border-bottom: 1px dotted #666;
+}
