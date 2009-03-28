@@ -28,6 +28,7 @@ topLevelHandler =
 --      compressedResponseFilter
       frontpage             `mappend`
         aboutpage           `mappend`
+        contactpage         `mappend`
         (liftH staticfiles) `mappend`
         temporaryPosts      `mappend`
         fourohfour
@@ -45,6 +46,13 @@ aboutpage =
     exactdir "/about" $ do
       serveTemplate' "." "about" (setAttribute "whichCss"
                                                ("posts" :: String))
+
+
+contactpage :: HomepageHandler
+contactpage =
+    exactdir "/about" $ do
+      serveTemplate' "." "contact" (setAttribute "whichCss"
+                                   ("posts" :: String))
 
 
 temporaryPosts :: HomepageHandler
