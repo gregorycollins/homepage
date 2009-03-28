@@ -69,7 +69,8 @@ temporaryPosts = do
 
 
 fourohfour :: HomepageHandler
-fourohfour = serveTemplate "." "404"
+fourohfour = serveTemplate' "." "404" (setAttribute "whichCss"
+                                      ("posts" :: String))
 
 
 -- N.B. "fileServeStrict" here is like normal "fileServe" from
