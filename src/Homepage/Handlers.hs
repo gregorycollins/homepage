@@ -50,7 +50,7 @@ aboutpage =
 
 contactpage :: HomepageHandler
 contactpage =
-    exactdir "/about" $ do
+    exactdir "/contact" $ do
       serveTemplate' "." "contact" (setAttribute "whichCss"
                                    ("posts" :: String))
 
