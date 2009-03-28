@@ -6,5 +6,5 @@
     <link rel="stylesheet" type="text/css" href="/static/css/$whichCss$.css"/>
     <link rel="stylesheet" type="text/css" href="/static/css/highlighting.css"/>
 
-    $! googleanalytics() !$
+    $ googleanalytics() $
   </head>
