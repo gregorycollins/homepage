@@ -44,7 +44,7 @@ aboutpage :: HomepageHandler
 aboutpage =
     exactdir "/about" $ do
       serveTemplate' "." "about" (setAttribute "whichCss"
-                                                   ("posts" :: String))
+                                               ("posts" :: String))
 
 
 temporaryPosts :: HomepageHandler
@@ -62,9 +62,9 @@ temporaryPosts = do
                                   \http://www.happstack.com/\">happstack</a> \
                                   \web framework to power a simple personal \
                                   \website.")
-                , ("postDate",    "march 26, 2009") ]
+                , ("postDate",    "march 28, 2009") ]
 
-    exactdir "/posts/2009/03/26/building-a-website-part-1" $
+    exactdir "/posts/2009/03/28/building-a-website-part-1" $
       serveTemplate' "." "post" (setManyAttrib attrs)
 
 

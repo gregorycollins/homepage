@@ -18,9 +18,9 @@ $htmlheader()$
         <h2>posts</h2>
         <table>
           <tr>
-            <td class="date">march 26, 2009</td>
+            <td class="date">march 28, 2009</td>
             <td class="title">
-              <a href="/posts/2009/03/26/building-a-website-part-1">Building
+              <a href="/posts/2009/03/28/building-a-website-part-1">Building
                 a website with Haskell, part 1</a>
             </td>
             <td class="summary">
