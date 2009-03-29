@@ -6,9 +6,9 @@ module Homepage.Util.Templates
     , serveTemplate' )
 where
 
-import Control.Concurrent.MVar
-import Control.Monad.State.Strict
+import Control.Monad.Reader
 
+import Data.IORef
 import Data.Maybe
 
 import Homepage.Types
@@ -30,8 +30,8 @@ getTemplateFromGroup tmpl group =
 
 
 getTemplates :: HomepageMonad TemplateDirs
-getTemplates = (get >>= return . homepageTemplateMVar)
-               >>= (\x -> liftIO $ readMVar x)
+getTemplates = (ask >>= return . homepageTemplateMVar)
+               >>= (\x -> liftIO $ readIORef x)
 
 
 getTemplate :: String           -- ^ directory group

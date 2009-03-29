@@ -5,7 +5,10 @@
 module Homepage.Types where
 
 import Control.Concurrent.MVar
-import Control.Monad.State.Strict
+import Control.Monad.Reader
+
+import Data.IORef
+
 import qualified Network.Delicious as D
 import qualified Data.ByteString.Lazy.Char8 as B
 
@@ -36,25 +39,25 @@ data DeliciousState = DeliciousState ![D.Post] !UTCTime
 
 
 -- | We're going to keep the templates inside the homepage state. The
--- | variable is wrapped in an MVar because I'm planning on using
--- | inotify to handle template reloads 
+-- | templates are wrapped in an IORef because I'm planning on using
+-- | inotify to handle template reloads
 data HomepageState = HomepageState {
-      homepageDeliciousMVar :: MVar DeliciousState
-    , homepageTemplateMVar  :: MVar TemplateDirs
+      homepageDeliciousMVar :: MVar  DeliciousState
+    , homepageTemplateMVar  :: IORef TemplateDirs
 }
 
 
 -- | Create a homepage state object with new empty mvars
-emptyHomepageState :: IO HomepageState
-emptyHomepageState = do
+emptyHomepageState :: TemplateDirs -> IO HomepageState
+emptyHomepageState td = do
   d <- newEmptyMVar
-  t <- newEmptyMVar
+  t <- newIORef td
   return $! HomepageState d t
 
 
 -- | We'll put the homepage state into a state monad so we don't have
 -- | to pass it around everywhere
-type HomepageMonad = StateT HomepageState IO
+type HomepageMonad = ReaderT HomepageState IO
 
 -- | Homepage handlers will have the following type
 type HomepageHandler = ServerPartT HomepageMonad Response
@@ -74,17 +77,15 @@ liftH = mapServerPartT liftIO
 -- | we'll pass this into simpleHTTP'.
 initHomepage :: IO (HomepageMonad a -> IO a)
 initHomepage = do
-    s <- emptyHomepageState
-
-    directoryGroups "templates" >>=
-        putMVar (homepageTemplateMVar s)
+    
+    s <- directoryGroups "templates" >>= emptyHomepageState
 
     return $! runHomepage s
 
 
 
 runHomepage :: HomepageState -> HomepageMonad a -> IO a
-runHomepage hps = flip evalStateT hps
+runHomepage hps = flip runReaderT hps
     
 
 ------------------------------------------------------------------------

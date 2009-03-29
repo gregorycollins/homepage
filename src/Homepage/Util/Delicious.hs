@@ -8,7 +8,7 @@ module Homepage.Util.Delicious
 
 import qualified Control.Exception as Ex
 import Control.Concurrent.MVar
-import Control.Monad.State.Strict
+import Control.Monad.Reader
 
 import Data.Char (isSpace)
 import Data.Maybe
@@ -142,7 +142,7 @@ humanReadableTimeDiff tz curTime oldTime =
 
 getRecent :: HomepageMonad [DiffPost]
 getRecent = do
-    delMVar <- get >>= return . homepageDeliciousMVar
+    delMVar <- ask >>= return . homepageDeliciousMVar
     now     <- liftIO $ getCurrentTime
     tz      <- liftIO $ getCurrentTimeZone
 

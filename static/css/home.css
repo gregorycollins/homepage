@@ -2,7 +2,7 @@
 
 #page {
     width: 960px;
-    background: #f0f0f0;
+    background: #f3f3f3;
     /*background: url(/static/i/grid-background.png);*/
     margin: 0px auto;
 }
@@ -10,7 +10,7 @@
 #topbar {
     width: 960px;
     height: 3em;
-    background: #f0f0f0;
+    background: #f3f3f3;
     margin: 0px auto;
     clear: both;
     color: #333;
@@ -63,11 +63,11 @@
 
 #navigation li a:link, #navigation li a:visited {
     color: #333;
-    background: #f0f0f0;
+    background: #f3f3f3;
 }
 
 #navigation li a:hover {
-    color: #f0f0f0;
+    color: #f3f3f3;
     background: #333;
 }
 

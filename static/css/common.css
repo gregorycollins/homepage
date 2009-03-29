@@ -32,7 +32,7 @@ abbr,acronym { border:0; }
 
 body {
     background: url(/static/i/background.jpg) repeat;
-    color: #333;
+    color: #222;
     font-family: 'Helvetica Neue', Calibri, sans-serif;
     font-size: 1.25em;
     font-size-adjust:none;
@@ -53,7 +53,7 @@ a:link, a:visited {
 }
 
 a:hover {
-    color: #417eef;
+    color: #003dac;
 }
 
 #footer {
@@ -73,4 +73,9 @@ a:hover {
     padding-left: 85px;
     height: 29px;
     display: inline-block;
+}
+
+
+pre {
+    line-height: 1.5;
 }

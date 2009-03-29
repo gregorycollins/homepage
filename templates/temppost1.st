@@ -57,7 +57,9 @@ Connection time [ms]: min 0.4 avg 1.7 max 15.1 median 1.5 stddev 0.6
 ><p
 >If I turn gzip compression on, I get nearly 3000 conn/s &mdash; but I had to turn it off because it looks like there&rsquo;s a bug serving static files.</p
 ><p
->My next post in this series will outline the software design behind this basic happstack website and demonstrate how simple it was to integrate the recent bookmarks from my <a href="http://www.delicious.com/"
+>My <a href="/posts/2009/03/30/building-a-website-part-2"
+  >next post</a
+  > in this series will outline the software design behind this basic happstack website and demonstrate how simple it was to integrate the recent bookmarks from my <a href="http://www.delicious.com/"
   >delicious</a
   > feed. In part three, we&rsquo;ll bootstrap a simple content management system, with all (some) of the usual amenities: RSS feeds, archives, markdown, etc. If you&rsquo;re curious to read the source code now, you can browse it at <a href="http://github.com/gregorycollins/homepage/tree/v0.1"
   >my github page</a

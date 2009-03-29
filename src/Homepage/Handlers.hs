@@ -56,8 +56,8 @@ contactpage =
                                    ("posts" :: String))
 
 
-temporaryPosts :: HomepageHandler
-temporaryPosts = do
+tempPost1 :: HomepageHandler
+tempPost1 = prefixdir "/posts/2009/03/28/building-a-website-part-1" $ do
     postContent <- lift $ (getTemplate "." "temppost1") >>=
                             (return . B.unpack . render)
 
@@ -73,8 +73,32 @@ temporaryPosts = do
                                   \website.")
                 , ("postDate",    "march 28, 2009") ]
 
-    prefixdir "/posts/2009/03/28/building-a-website-part-1" $
-      serveTemplate' "." "post" (setManyAttrib attrs)
+    serveTemplate' "." "post" (setManyAttrib attrs)
+
+
+tempPost2 :: HomepageHandler
+tempPost2 = prefixdir "/posts/2009/03/30/building-a-website-part-2" $ do
+    postContent <- lift $ (getTemplate "." "temppost2") >>=
+                            (return . B.unpack . render)
+
+    let attrs :: [(String,String)]
+        attrs = [ ("websiteTitleExtra",
+                   ": Building a website with Haskell, part 2")
+                , ("whichCss",    "posts")
+                , ("postContent", postContent)
+                , ("postTitle",   "Building a website with Haskell, part 2")
+                , ("postSummary", "In the second part of the series, we \
+                                  \discuss the design of this <a href=\"\
+                                  \http://www.happstack.com/\">happstack</a> \
+                                  \website.")
+                , ("postDate",    "march 30, 2009") ]
+
+    serveTemplate' "." "post" (setManyAttrib attrs)
+
+
+
+temporaryPosts :: HomepageHandler
+temporaryPosts = tempPost1 `mappend` tempPost2
 
 
 prefixdir :: (Monad m) => String -> ServerPartT m a -> ServerPartT m a
@@ -90,7 +114,8 @@ fourohfour = serveTemplate' "." "404" (setAttribute "whichCss"
 
 -- N.B. "fileServeStrict" here is like normal "fileServe" from
 -- happstack 0.2.1, except modified to consume the file strictly
--- (avoiding handle leaks)
+-- (avoiding handle leaks). You'll need the darcs truck version of
+-- happstack to run this.
 staticfiles :: WebHandler
 staticfiles = staticserve "static"
   where staticserve d = dir d (fileServeStrict [] d)

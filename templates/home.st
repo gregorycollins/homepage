@@ -18,6 +18,19 @@ $htmlheader()$
         <h2>posts</h2>
         <table>
           <tr>
+            <td class="date">march 30, 2009</td>
+            <td class="title">
+              <a href="/posts/2009/03/30/building-a-website-part-2">Building
+                a website with Haskell, part 2</a>
+            </td>
+            <td class="summary">
+              In the second part of the series, we discuss the design
+              of
+              this <a href="http://www.happstack.com/">happstack</a>
+              website.
+            </td>
+          </tr>
+          <tr>
             <td class="date">march 28, 2009</td>
             <td class="title">
               <a href="/posts/2009/03/28/building-a-website-part-1">Building
@@ -49,7 +62,7 @@ $htmlheader()$
             </td>
             <td class="summary">
               I've posted some code I'm working on here,
-              including <a href="http://github.com/gregorycollins/homepage/tree/v0.1">the
+              including <a href="http://github.com/gregorycollins/homepage/tree">the
               source for this website</a>.
             </td>
           </tr>

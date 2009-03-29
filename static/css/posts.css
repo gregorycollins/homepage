@@ -6,10 +6,15 @@ ul li {
     list-style-position: inside;
 }
 
+li p {
+    display: inline; margin: 0;
+}
+
+em { font-style: italic; }
 
 #page {
     width: 960px;
-    background: #f0f0f0;
+    background: #f3f3f3;
     margin: 0px auto;
 }
 
@@ -19,7 +24,7 @@ ul li {
     background: #911;
     margin: 0px auto;
     clear: both;
-    color: #f0f0f0;
+    color: #f3f3f3;
 }
 
 #content {
@@ -76,13 +81,13 @@ ul li {
 }
 
 #navigation li a:link, #navigation li a:visited {
-    color: #f0f0f0;
+    color: #f3f3f3;
     background: #911;
 }
 
 #navigation li a:hover {
     color: #911;
-    background: #f0f0f0;
+    background: #f3f3f3;
 }
 
 
@@ -212,12 +217,18 @@ h2 a:hover {
 
 
 pre {
-    font-size: 0.8em;
+    font-size: 0.9em;
     margin-left:   2em;
-    margin-bottom: 1em;
+    margin-bottom: 1.25em;
 }
 
 
 #recently-bookmarked tr, #links tr, #recent-posts tr {
     border-bottom: 1px dotted #666;
+}
+
+
+div.indented {
+    margin-left:   2em;
+    margin-bottom: 1em;
 }

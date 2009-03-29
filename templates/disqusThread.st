@@ -1,4 +1,5 @@
         <div class="post-comments">
+          <h3>Comments</h3>
           <div id="disqus_thread"></div>
           <script type="text/javascript"
                   src="http://disqus.com/forums/gregorycollins/embed.js"></script>
