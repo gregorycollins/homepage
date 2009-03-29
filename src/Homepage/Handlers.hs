@@ -72,7 +72,7 @@ temporaryPosts = do
                                   \website.")
                 , ("postDate",    "march 28, 2009") ]
 
-    exactdir "/posts/2009/03/28/building-a-website-part-1" $
+    dir "/posts/2009/03/28/building-a-website-part-1" $
       serveTemplate' "." "post" (setManyAttrib attrs)
 
 
