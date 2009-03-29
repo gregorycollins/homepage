@@ -6,6 +6,7 @@ module Homepage.Handlers (topLevelHandler) where
 
 import Control.Monad.State.Strict
 
+import Data.List
 import Data.Monoid
 import qualified Data.ByteString.Lazy.Char8 as B
 
@@ -72,8 +73,14 @@ temporaryPosts = do
                                   \website.")
                 , ("postDate",    "march 28, 2009") ]
 
-    dir "/posts/2009/03/28/building-a-website-part-1" $
+    prefixdir "/posts/2009/03/28/building-a-website-part-1" $
       serveTemplate' "." "post" (setManyAttrib attrs)
+
+
+prefixdir :: (Monad m) => String -> ServerPartT m a -> ServerPartT m a
+prefixdir staticPath sps = do
+    rq <- askRq
+    if staticPath `isPrefixOf` (rqURL rq) then sps else mzero
 
 
 fourohfour :: HomepageHandler
