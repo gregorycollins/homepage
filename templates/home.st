@@ -46,7 +46,9 @@ $htmlheader()$
       </div>
 
       <div id="recently-bookmarked">
-        <h2><a href="http://delicious.com/how.gauche/">recently bookmarked</a></h2>
+        <h2><a href="http://delicious.com/how.gauche/">recently bookmarked</a>
+            <a href="http://feeds.delicious.com/v2/rss/how.gauche?count=15"
+            ><img src="/static/i/feed.png"/></a></h2>
         <table>
           $recentBookmarks:{elem | $deliciousBookmark()$}$
         </table>
