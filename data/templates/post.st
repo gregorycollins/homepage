@@ -1,4 +1,4 @@
-$htmlheader()$
+$htmlheader(whichCss="posts")$
 <body>
   <div id="page">
     <div id="topbar">
@@ -8,14 +8,14 @@ $htmlheader()$
 
     <div id="content">
       <div class="post">
-        <h2>$postTitle$</h2>
+        <h2>$post.title$</h2>
         <div class="post-meta">
-          <div class="post-date">$postDate$</div>
-          <div class="post-summary">$postSummary$</div>
+          <div class="post-date">$post.date$</div>
+          <div class="post-summary">$post.summary$</div>
         </div>
 
         <div class="post-content">
-          $postContent$
+          $post.content$
         </div>
 
         $disqusThread()$

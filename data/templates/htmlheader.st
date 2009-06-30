@@ -2,9 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>gregory david collins$websiteTitleExtra$</title>
+    <title>$pageTitle$</title>
     <link rel="stylesheet" type="text/css" href="/static/css/$whichCss$.css"/>
     <link rel="stylesheet" type="text/css" href="/static/css/highlighting.css"/>
+    $extraHead$
 
     $ googleanalytics() $
   </head>

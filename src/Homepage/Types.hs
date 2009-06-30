@@ -16,17 +16,12 @@ import Data.Time
 
 import Happstack.Server
 
-import Text.StringTemplate
-import Text.StringTemplate.Helpers
+import Blaaargh
+import Blaaargh.Types
+import Blaaargh.Post
+import Blaaargh.Templates
+import Blaaargh.Util.Templates
 
-
-------------------------------------------------------------------------
--- * Type synonyms
-
--- | type synonyms for templates & template groups
-type TemplateDirs  = STDirGroups B.ByteString
-type TemplateGroup = STGroup B.ByteString
-type Template      = StringTemplate B.ByteString
 
 
 ------------------------------------------------------------------------
@@ -42,17 +37,16 @@ data DeliciousState = DeliciousState ![D.Post] !UTCTime
 -- | templates are wrapped in an IORef because I'm planning on using
 -- | inotify to handle template reloads
 data HomepageState = HomepageState {
-      homepageDeliciousMVar :: MVar  DeliciousState
-    , homepageTemplateMVar  :: IORef TemplateDirs
+      homepageDeliciousMVar :: MVar DeliciousState
+    , homepageBlaaarghState :: BlaaarghState
 }
 
 
 -- | Create a homepage state object with new empty mvars
-emptyHomepageState :: TemplateDirs -> IO HomepageState
-emptyHomepageState td = do
+emptyHomepageState :: BlaaarghState -> IO HomepageState
+emptyHomepageState bs = do
   d <- newEmptyMVar
-  t <- newIORef td
-  return $! HomepageState d t
+  return $! HomepageState d bs
 
 
 -- | We'll put the homepage state into a state monad so we don't have
@@ -75,10 +69,9 @@ liftH = mapServerPartT liftIO
 -- | monad evaluator function 
 -- |    runner :: HomepageMonad a -> IO a
 -- | we'll pass this into simpleHTTP'.
-initHomepage :: IO (HomepageMonad a -> IO a)
-initHomepage = do
-    
-    s <- directoryGroups "templates" >>= emptyHomepageState
+initHomepage :: FilePath -> IO (HomepageMonad a -> IO a)
+initHomepage blaaarghDir = do
+    s <- initBlaaargh blaaarghDir >>= emptyHomepageState
 
     return $! runHomepage s
 

@@ -18,6 +18,20 @@ $htmlheader()$
         <h2>posts</h2>
         <table>
           <tr>
+            <td class="date">june 20, 2009</td>
+            <td class="title">
+              <a href="/posts/2009/06/20/web-analytics-at-polar-mobile">Talk:
+              Web Analytics at Polar Mobile</a>
+            </td>
+            <td class="summary">
+              I recently had the privilege of giving a talk to the
+              Budapest Functional Programming Group about some Haskell
+              stuff I've been doing lately
+              at <a href="http://www.polarmobile.com/">Polar
+              Mobile</a>, where I work.
+            </td>
+          </tr>
+          <tr>
             <td class="date">march 30, 2009</td>
             <td class="title">
               <a href="/posts/2009/03/30/building-a-website-part-2">Building
@@ -57,6 +71,16 @@ $htmlheader()$
       <div id="links">
         <h2>links</h2>
         <table>
+          <tr>
+            <td class="date"></td>
+            <td class="title">
+              <a href="http://hackage.haskell.org/platform/">Haskell Platform</a>
+            </td>
+            <td class="summary">
+              I am currently the maintainer of the OSX installer for
+              the Haskell Platform project.
+            </td>
+          </tr>
           <tr>
             <td class="date"></td>
             <td class="title">

@@ -138,6 +138,11 @@ div.post-content {
     float: left;
 }
 
+div.post-content hr {
+    width: 66%;
+    margin: 2.5em auto;
+}
+
 div.post-comments {
     clear: both;
     margin-top: 1em;

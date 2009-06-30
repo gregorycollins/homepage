@@ -1,10 +1,20 @@
+{-# LANGUAGE ScopedTypeVariables #-}
+
 module Main where
 
 import Happstack.Server hiding (port)
+--import Happstack.Server.FastCGI
 
 import Homepage
 
+import Control.Exception
+import Prelude hiding (catch)
 import System.Environment
+
+-- import           System.Log.Handler.Simple
+-- import           System.Log.Logger
+
+
 
 main :: IO ()
 main = do
@@ -25,7 +35,15 @@ startServer port = do
     -- we'll pass this into simpleHTTP'. (the HTTP server expects to
     -- be given IO and needs a function to produce an IO action given
     -- our custom state monad.)
-    initHomepage >>= go
+    getBlaaarghDir >>= initHomepage >>= go
 
   where
     go eval = simpleHTTP' eval (Conf port Nothing) topLevelHandler
+
+
+getBlaaarghDir :: IO FilePath
+getBlaaarghDir = getEnv "BLAAARGH_DIR" `catch`
+                   \(_ :: SomeException) -> return "data"
+
+
+

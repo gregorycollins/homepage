@@ -1,0 +1,12 @@
+[default]
+siteurl = http://gregorycollins.net
+
+# posts are mapped to this URL
+baseurl =
+
+
+[feed]
+title    = gregory david collins
+authors  = Gregory Collins <greg@gregorycollins.net>
+#icon     = /static/icon.png
+skipurls = static,about,contact

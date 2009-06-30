@@ -1,4 +1,4 @@
-$htmlheader()$
+$htmlheader(whichCss="posts")$
 <body>
   <div id="page">
     <div id="topbar">
@@ -12,14 +12,12 @@ $htmlheader()$
 
         <ul>
           <li>I'm a 29-year old computer programmer and musician
-            living in Toronto, Ontario, Canada.</li>
+            living in Toronto, Canada with my wife Amy Emel.</li>
           <li>I did an MSc. in Computer
             Science <a href="http://flint.cs.yale.edu/">here</a>.</li>
-          <li>As of April 15, I'll be working
-            at <a href="http://www.polarmobile.com/">Polar
-            Mobile</a>.</li>
-          <li>I'm engaged to be married (sorry ladies!) to the
-            wonderful Amy Lee Anne Emel this summer.</li>
+          <li>I work at <a href="http://www.polarmobile.com/">Polar
+            Mobile</a>, a provider of content-delivery applications
+            for smartphones.</li>
           <li>I enjoy playing basketball.</li>
           <li>I used to be in <a href="http://ninjahighschool.info/">a
             positive hardcore rap group</a>.</li>

@@ -4,22 +4,41 @@
 
 module Homepage.Handlers (topLevelHandler) where
 
-import Control.Monad.State.Strict
+import Control.Monad.Reader
 
 import Data.List
 import Data.Monoid
 import qualified Data.ByteString.Lazy.Char8 as B
 
-import Happstack.Helpers
 import Happstack.Server
 --import Happstack.Server.Parts
 
 import Homepage.Types
-import Homepage.Util.Templates
 import Homepage.Util.Delicious as Delicious
 
-import Text.StringTemplate
 
+-- FIXME: "Blaaargh" should just export the right stuff
+import Blaaargh.Types
+import Blaaargh.Handlers
+import Blaaargh
+
+setDeliciousTemplate :: BlaaarghHandler -> HomepageMonad BlaaarghHandler
+setDeliciousTemplate handler = do
+    bookmarks <- Delicious.getRecent
+
+    return $
+        (lift (addExtraTemplateArguments [("recentBookmarks", bookmarks)])
+           >> handler)
+
+
+topLevelHandler :: HomepageHandler
+topLevelHandler = do
+    handler <- lift $ setDeliciousTemplate serveBlaaargh
+    bs      <- lift $ ask >>= return . homepageBlaaarghState
+
+    liftH $ runBlaaarghHandler bs handler
+
+{-
 
 topLevelHandler :: HomepageHandler
 topLevelHandler =
@@ -119,3 +138,7 @@ fourohfour = serveTemplate' "." "404" (setAttribute "whichCss"
 staticfiles :: WebHandler
 staticfiles = staticserve "static"
   where staticserve d = dir d (fileServeStrict [] d)
+
+
+
+-}

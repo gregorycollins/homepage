@@ -1,4 +1,4 @@
-$htmlheader()$
+$htmlheader(whichCss="posts")$
 <body>
   <div id="page">
     <div id="topbar">
