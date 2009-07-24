@@ -4,27 +4,18 @@
 -- | to the website's global state, plus some synonyms
 module Homepage.Types where
 
-import Control.Concurrent.MVar
-import Control.Monad.Reader
 
-import Data.IORef
-
-import qualified Network.Delicious as D
+------------------------------------------------------------------------------
+import           Blaaargh
+import           Control.Concurrent.MVar
+import           Control.Monad.Reader
 import qualified Data.ByteString.Lazy.Char8 as B
-
-import Data.Time
-
-import Happstack.Server
-
-import Blaaargh
-import Blaaargh.Types
-import Blaaargh.Post
-import Blaaargh.Templates
-import Blaaargh.Util.Templates
+import           Data.Time
+import           Happstack.Server
+import qualified Network.Delicious as D
 
 
-
-------------------------------------------------------------------------
+------------------------------------------------------------------------------
 -- * Homepage State
 
 -- | In order to not spam delicious, we only pull my recent feeds once
@@ -33,9 +24,6 @@ import Blaaargh.Util.Templates
 data DeliciousState = DeliciousState ![D.Post] !UTCTime
 
 
--- | We're going to keep the templates inside the homepage state. The
--- | templates are wrapped in an IORef because I'm planning on using
--- | inotify to handle template reloads
 data HomepageState = HomepageState {
       homepageDeliciousMVar :: MVar DeliciousState
     , homepageBlaaarghState :: BlaaarghState
@@ -66,7 +54,7 @@ liftH = mapServerPartT liftIO
 
 
 -- | this IO action initializes the homepage's state and returns a
--- | monad evaluator function 
+-- | monad evaluator function
 -- |    runner :: HomepageMonad a -> IO a
 -- | we'll pass this into simpleHTTP'.
 initHomepage :: FilePath -> IO (HomepageMonad a -> IO a)
@@ -79,7 +67,7 @@ initHomepage blaaarghDir = do
 
 runHomepage :: HomepageState -> HomepageMonad a -> IO a
 runHomepage hps = flip runReaderT hps
-    
+
 
 ------------------------------------------------------------------------
 -- * odds and ends

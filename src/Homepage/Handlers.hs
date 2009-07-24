@@ -4,23 +4,13 @@
 
 module Homepage.Handlers (topLevelHandler) where
 
-import Control.Monad.Reader
+------------------------------------------------------------------------------
+import           Blaaargh
+import           Control.Monad.Reader
 
-import Data.List
-import Data.Monoid
-import qualified Data.ByteString.Lazy.Char8 as B
-
-import Happstack.Server
---import Happstack.Server.Parts
-
-import Homepage.Types
-import Homepage.Util.Delicious as Delicious
-
-
--- FIXME: "Blaaargh" should just export the right stuff
-import Blaaargh.Types
-import Blaaargh.Handlers
-import Blaaargh
+------------------------------------------------------------------------------
+import           Homepage.Types
+import           Homepage.Util.Delicious as Delicious
 
 setDeliciousTemplate :: BlaaarghHandler -> HomepageMonad BlaaarghHandler
 setDeliciousTemplate handler = do

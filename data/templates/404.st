@@ -1,4 +1,4 @@
-$htmlheader()$
+$htmlheader(whichCss="posts")$
 <body>
   <div id="page">
     <div id="topbar">
@@ -6,8 +6,10 @@ $htmlheader()$
     $navigation()$
     </div>
 
-    <div id="fourohfour">
-      Sorry, that page was not found.
+    <div id="content">
+      <div id="fourohfour">
+        Sorry, that page was not found.
+      </div>
     </div>
   </div>
 $footer()$
