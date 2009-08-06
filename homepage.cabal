@@ -2,8 +2,8 @@ Name:                homepage
 Version:             0.4
 Synopsis:            gregorycollins.net
 
-License:             BSD3
-License-file:        LICENSE
+License:             GPL
+License-file:        COPYING
 Author:              Gregory Collins
 
 Stability:           Experimental
@@ -28,8 +28,8 @@ Executable gregorycollins.net
                    mtl, bytestring,
                    happstack-server >= 0.3,
                    hslogger,
-                   containers, pretty, pureMD5,
-                   directory, filepath, hscolour, HTTP, safe,
+                   containers, pretty,
+                   directory, filepath, HTTP, safe,
                    old-time, parsec,
                    delicious, unix,
                    time, old-locale
